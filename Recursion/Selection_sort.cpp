@@ -6,7 +6,7 @@ void helperselection(vector<int>&arr, int i,int n){
 
     int start = i;
     for(int j=i+1;j<n;++j){
-        if (arr[j] < arr[start]) start=j;
+        if (arr[j] < arr[start]) start=j;         //aim is to find smallest element and placce it at starting
     }
 
     swap(arr[i],arr[start]);
