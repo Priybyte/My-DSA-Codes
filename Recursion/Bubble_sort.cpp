@@ -1,17 +1,17 @@
-class Solution {
-public:
+#include <bits/stdc++.h> 
 
-  void  helperbubble(vector<int>& nums, int i,int j){ 
-        if (i>j) return;
+void helperbubble(vector<int>&arr,int i,int n){
 
-        for (int i=0;i<nums.size()-1;++i){                           //aim is to place largest element at last 
-            if (nums[i] > nums[i+1]) swap(nums[i],nums[i+1]);
-        }
+    if (i==n-1) return;
 
-        return helperbubble(nums,i,j-1);
+    for(int i=0;i<n-1;++i){
+        if (arr[i] > arr[i+1]) swap(arr[i],arr[i+1]);       //aim is to place largest element at last during 
     }
 
-    void sortColors(vector<int>& nums) {
-        return helperbubble(nums,0,nums.size()-1);
-    }
-};
+    helperbubble(arr,i,n-1);
+}
+
+void bubbleSort(vector<int>& arr, int n)
+{   
+        helperbubble(arr,0,arr.size());
+}
