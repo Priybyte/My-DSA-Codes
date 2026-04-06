@@ -8,7 +8,7 @@ public:
 
         for (int i=0;i<n;++i){         //tc:O(n),sc:O(1)
 
-            int num = abs(nums[i]); 
+            int num = abs(nums[i]);    //abs coz idx can't be negative
 
             int idx = num-1;
 
