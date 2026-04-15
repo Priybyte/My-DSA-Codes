@@ -8,7 +8,7 @@ int main()
 	while (t--) // Added the loop for test cases
 	{
 		long long n, k;
-		cin >> n >> k; 
+		cin >> n >> k;  
 		vector<long long> a(n);                //sc:O(n)
 		for (int i = 0; i < n; i++) 
 			cin >> a[i];
