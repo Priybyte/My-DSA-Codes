@@ -8,7 +8,7 @@ public:
         else if (ruleKey=="color") i=1;
         else i=2;
 
-        int count=0;
+        int count=0; 
         for(auto&x:items){  //tc:O(n),sc:O(1)
             
             if (x[i]==ruleValue) count++;
