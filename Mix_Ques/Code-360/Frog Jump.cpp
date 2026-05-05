@@ -1,23 +1,22 @@
 #include <bits/stdc++.h> 
 
-int index(int idx,vector<int>&heights,vector<int>&dp){   //tc:O(n),sc:O(n) {recursion depth}
+int solve(int idx,vector<int>&dp,vector<int>&heights){    //tc:O(n),sc:O(n) 
+
     if (idx==0) return 0;
 
     if (dp[idx]!=-1) return dp[idx];
 
-    int step1 = index(idx-1,heights,dp) + abs(heights[idx]-heights[idx-1]);
+    int oneStep = solve(idx-1,dp,heights) + abs(heights[idx]-heights[idx-1]);
+    int twoStep = INT_MAX; //compare karane ke liye max value le lo
 
-    // int step2=0;
-    int step2=INT_MAX; //step 2!=0 , think of array size 1
-    if (idx>1) step2 = index(idx-2,heights,dp) + abs(heights[idx]-heights[idx-2]);
+    if (idx>1) twoStep = solve(idx-2,dp,heights) + abs(heights[idx]-heights[idx-2]);  //tbhi calculate karo agr idx>1 coz idx<1 ke liye negative index dega ,program will crash
 
-    return dp[idx]= min(step1,step2);
-
+    return dp[idx] = min(oneStep,twoStep);
 }
+
 
 int frogJump(int n, vector<int> &heights)
 {
-    vector<int>dp(n+1,-1);
-    return index(n-1,heights,dp); //return n-1 not n coz we want index not size 
-    
+    vector<int> dp(n+1,-1);            
+    return solve(n-1,dp,heights);     //jb bhi array given ho then alwys pass n-1 not n , coz array ka last index is n-1 
 }
